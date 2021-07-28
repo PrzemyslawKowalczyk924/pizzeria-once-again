@@ -60,6 +60,7 @@
       thisProduct.data = data;
 
       thisProduct.renderInMenu();
+      thisProduct.initAccordion();
 
       console.log('new Product:', thisProduct);
     }
@@ -78,6 +79,39 @@
 
       /* add element to menu */
       menuContainer.appendChild(thisProduct.element);
+    }
+
+    initAccordion(){
+      const thisProduct = this;
+
+      /* find the clickable trigger (the element that should react to clicking) */
+      const trigger = thisProduct.element.querySelector(select.menuProduct.clickable);
+      
+      /* START: click event listener to trigger */
+      trigger.addEventListener('click', function(event) {
+        event.preventDefault();
+        
+        console.log('click');
+        thisProduct.element.toggle('active');
+      });
+
+        /* prevent default action for event */
+
+        /* toggle active class on element of thisProduct */
+
+        /* find all active products */
+
+        /* START LOOP: for each active product */
+
+          /* START: if the active product isn't the element of thisProduct */
+
+            /* remove class active for the active product */
+
+          /* END: if the active product isn't the element of thisProduct */
+
+        /* END LOOP: for each active product */
+
+      /* END: click event listener to trigger */
     }
   }
 
