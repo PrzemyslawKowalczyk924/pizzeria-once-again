@@ -144,9 +144,29 @@
       const formData = utils.serializeFormToObject(thisProduct.form);
       console.log('formData', formData);
 
+      thisProduct.params = {};
       let price = thisProduct.data.price;
 
-      for(let optionId in thisProduct.data.params)
+      for(let paramId in thisProduct.data.params){
+        
+        const param = thisProduct.data.params[paramId];
+        
+        for(let optionId in param.options){
+          
+          const option = param.options[optionId];
+
+          const optionSelected = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > -1;
+          
+          if(optionSelected && !option.default){
+            price += option.price;
+          } else if(!optionSelected && option.default){
+            price -= option.price;
+          }
+        }
+      }
+
+      thisProduct.priceElem.innerHTML = thisProduct.price;
+      console.log('price', thisProduct.price);
     }
 
   }
