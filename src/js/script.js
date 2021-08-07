@@ -145,8 +145,8 @@
       console.log('formData', formData);
 
       thisProduct.params = {};
-      let price = thisProduct.data.price;
-
+      let price = thisProduct.data.price; // eslint-disable-line no-unused-vars
+      console.log('price', price);
       for(let paramId in thisProduct.data.params){
         
         const param = thisProduct.data.params[paramId];
@@ -159,14 +159,16 @@
           
           if(optionSelected && !option.default){
             price += option.price;
+            console.log('price', price);
           } else if(!optionSelected && option.default){
             price -= option.price;
+            console.log('price', price);
           }
         }
       }
 
-      thisProduct.priceElem.innerHTML = thisProduct.price;
-      console.log('price', thisProduct.price);
+      thisProduct.priceElem.innerHTML = price;
+      console.log('price', thisProduct.priceElem.innerHTML);
     }
 
   }
