@@ -226,7 +226,6 @@
             }
           }
         }
-        console.log('params', thisProduct.params);
       }
 
       /* multiply price by amount */
@@ -345,21 +344,43 @@
 
       console.log('adding product', menuProduct);
 
-      /* generate HTML based on template */
       const generatedHTML = templates.cartProduct(menuProduct);
-      console.log(generatedHTML);
-
-      /* create element using tuils.createElementFromHTML */
-      //thisProduct.element = utils.createDOMFromHTML(generatedHTML);
 
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-      /* find menu container */
-      //const menuContainer = document.querySelector(select.containerOf.menu);
 
       thisCart.dom.productList.appendChild(generatedDOM);
 
-      /* add element to menu */
-      //menuContainer.appendChild(thisProduct.element);
+      thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+      console.log('thisCartproducts', thisCart.products);
+    }
+  }
+
+  class CartProduct {
+    constructor(menuProduct, element) {
+      const thisCartProduct = this;
+
+      thisCartProduct.id = menuProduct.id;
+      thisCartProduct.name = menuProduct.name;
+      thisCartProduct.price = menuProduct.price;
+      thisCartProduct.priceSingle = menuProduct.priceSingle;
+      thisCartProduct.amount = menuProduct.amount;
+
+      thisCartProduct.params = JSON.parse(JSON.stringify(menuProduct.params));
+      
+      thisCartProduct.getElements(element);
+      console.log('new CartProduct', thisCartProduct);
+    }
+
+    getElements(element){
+      const thisCartProduct = this;
+
+      thisCartProduct.dom = {};
+      
+      thisCartProduct.dom.wrapper = element;
+      thisCartProduct.dom.amountWidget = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.amountWidget);
+      thisCartProduct.dom.price = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.price);
+      thisCartProduct.dom.edit = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.edit);
+      thisCartProduct.dom.remove = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.remove);
     }
   }
 
