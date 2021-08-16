@@ -377,7 +377,7 @@
       for (let product of thisCart.products) {
         thisCart.subtotalPrice += product.price;
         thisCart.totalNumber += product.amount;
-      };
+      }
 
       thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
       console.log('totalNumber', thisCart.totalNumber);
@@ -424,7 +424,7 @@
       const thisCartProduct = this;
 
       thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
-      thisCartProduct.dom.amountWidget.addEventListener('update', function(){
+      thisCartProduct.dom.amountWidget.addEventListener('updated', function(){
         thisCartProduct.amount = thisCartProduct.amountWidget.value;
         thisCartProduct.price = thisCartProduct.priceSingle * thisCartProduct.amount;
         thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
