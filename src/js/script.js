@@ -432,7 +432,7 @@
         body: JSON.stringify(payload),
       };
 
-      fetch(url, option)
+      fetch(url, options)
       .then(function(response){
         return response.json();
       }).then(function(parsedResponse){
