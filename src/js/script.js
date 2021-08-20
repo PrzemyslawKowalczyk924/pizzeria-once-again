@@ -338,7 +338,7 @@
         thisCart.dom[key] = thisCart.dom.wrapper.querySelectorAll(select.cart[key]);
       }
 
-      thisCart.dom.form = thisCart.dom.wrapper.querySelector(select.cart.from);
+      thisCart.dom.form = thisCart.dom.wrapper.querySelector(select.cart.form);
     }
 
     initActions(){
@@ -431,6 +431,13 @@
         },
         body: JSON.stringify(payload),
       };
+
+      fetch(url, option)
+      .then(function(response){
+        return response.json();
+      }).then(function(parsedResponse){
+        console.log('parsedResponse', parsedResponse);
+      });
     }
   }
 
