@@ -32,7 +32,6 @@
         linkIncrease: 'a[href="#more"]',
       },
     },
-    // CODE ADDED START
     cart: {
       productList: '.cart__order-summary',
       toggleTrigger: '.cart__summary',
@@ -51,7 +50,6 @@
       edit: '[href="#edit"]',
       remove: '[href="#remove"]',
     },
-    // CODE ADDED END
   };
   
   const classNames = {
@@ -424,8 +422,8 @@
       const payload = {
         products: [],
 
-        phone: thisCart.dom.phone,
-        address: thisCart.dom.address,
+        phone: thisCart.dom.phone.value,
+        address: thisCart.dom.address.value,
         totalPrice: thisCart.totalPrice,
         totalNumber: thisCart.totalNumber,
         subtotalPrice: thisCart.subtotalPrice,
