@@ -140,5 +140,6 @@ class Cart{
         console.log('parsedResponse', parsedResponse);
       });
   }
-
 }
+
+export default Cart;
