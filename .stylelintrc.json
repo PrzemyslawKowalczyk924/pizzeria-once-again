@@ -19,7 +19,6 @@
       "ignore": ["after-comment"]
     } ],
     "unit-whitelist": null,
-    "scss/selector-no-redundant-nesting-selector": true,
     "scss/no-duplicate-dollar-variables": true
   }
 }
