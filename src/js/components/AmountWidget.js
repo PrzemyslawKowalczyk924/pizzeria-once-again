@@ -19,17 +19,13 @@ class AmountWidget extends BaseWidget{
     thisWidget.dom.linkIncrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkIncrease);
   }
 
-  setValue(value){
+  isValid(value) {
+    return !isNaN(value) >= settings.amountWidget.defaultMin && value <= settings.amountWidget.defaultMax
+  }
+
+  renderValue() {
     const thisWidget = this;
 
-    const newValue = parseInt(value);
-
-    /* TODO: Add validation */
-
-    if (newValue != thisWidget.value && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax){
-      thisWidget.value = newValue;
-      thisWidget.announce();
-    }
     thisWidget.dom.input.value = thisWidget.value;
   }
 
@@ -49,15 +45,6 @@ class AmountWidget extends BaseWidget{
       event.preventDefault();
       thisWidget.setValue(thisWidget.value + 1);
     });
-  }
-
-  announce(){
-    const thisWidget = this;
-
-    const event = new CustomEvent('updated', {
-      bubbles: true
-    });
-    thisWidget.dom.wrapper.dispatchEvent(event);
   }
 }
 
