@@ -11,8 +11,6 @@ class Cart{
 
     thisCart.getElements(element);
     thisCart.initActions();
-
-    console.log('new Cart', thisCart);
   }
 
   getElements(element){
@@ -87,9 +85,6 @@ class Cart{
     }
 
     thisCart.totalPrice = (thisCart.totalNumber == 0) ? 0 : thisCart.subtotalPrice + thisCart.deliveryFee;
-    console.log('totalNumber', thisCart.totalNumber);
-    console.log('subPrice', thisCart.subtotalPrice);
-    console.log('totalPrice', thisCart.totalPrice);
 
     for (let key of thisCart.renderTotalsKeys) {
       for(let elem of thisCart.dom[key]){
