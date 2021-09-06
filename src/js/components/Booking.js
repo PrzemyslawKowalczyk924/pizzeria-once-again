@@ -117,6 +117,13 @@ class Booking {
     }
   }
 
+  bookTable() {
+    const thisBooking = this;
+    const bookingButton = document.querySelector('#booking-button');
+
+    
+  }
+
   updateDOM() {
     const thisBooking = this;
 
