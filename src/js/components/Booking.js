@@ -13,6 +13,7 @@ class Booking {
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
+    thisBooking.bookTable();
   }
 
   getData() {
@@ -121,7 +122,15 @@ class Booking {
     const thisBooking = this;
     const bookingButton = document.querySelector('#booking-button');
 
-    
+    for(let table of thisBooking.dom.tables) {
+      table.addEventListener('click', function(event){
+        event.preventDefault();
+        //bookingButton.disabled = false;
+        
+        const tableChosen = thisBooking.dom.wrapper.querySelector(select.booking.tableChosen);
+        console.log(tableChosen);
+      });
+    }
   }
 
   updateDOM() {
