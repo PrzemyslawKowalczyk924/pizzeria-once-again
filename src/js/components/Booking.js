@@ -125,9 +125,21 @@ class Booking {
     for(let table of thisBooking.dom.tables) {
       table.addEventListener('click', function(event){
         event.preventDefault();
-        //bookingButton.disabled = false;
-        
+        bookingButton.disabled = false;
+        console.log('test', thisBooking.dom.wrapper)
         const tableChosen = thisBooking.dom.wrapper.querySelector(select.booking.tableChosen);
+        console.log(tableChosen);
+        if (tableChosen) {
+          tableChosen.classList.remove(classNames.booking.tableChosen);
+        }
+        if (table.classList.contains(classNames.booking.tableBooked)){
+          alert('this table is already booked');
+          return false;
+        }
+        table.classList.add(classNames.booking.tableChosen);
+        thisBooking.tableSelected = table.getAttribute(settings.booking.tableIdAttribute);
+        console.log(thisBooking.tableSelected);
+        console.log(table);
         console.log(tableChosen);
       });
     }
@@ -135,6 +147,14 @@ class Booking {
 
   updateDOM() {
     const thisBooking = this;
+    const bookingButton = document.querySelector('#booking-button');
+    bookingButton.disabled = false;
+
+    const tableChosen = thisBooking.dom.wrapper.querySelector(select.booking.tableChosen);
+    if (tableChosen) {
+      tableChosen.classList.remove(classNames.booking.tableChosen);
+    }
+    thisBooking.tableSelected = null;
 
     thisBooking.date = thisBooking.datePicker.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
@@ -175,12 +195,12 @@ class Booking {
 
     thisBooking.dom.wrapper = element;
     thisBooking.dom.wrapper.innerHTML = generatedHTML;
-
+    
     thisBooking.dom.peopleAmount = thisBooking.dom.wrapper.querySelector(select.booking.peopleAmount);
     thisBooking.dom.hoursAmount = thisBooking.dom.wrapper.querySelector(select.booking.hoursAmount);
     thisBooking.dom.datePicker = thisBooking.dom.wrapper.querySelector(select.widgets.datePicker.wrapper);
     thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
-
+    
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(select.booking.tables);
   }
 
