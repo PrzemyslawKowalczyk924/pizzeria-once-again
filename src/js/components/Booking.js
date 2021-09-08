@@ -203,7 +203,7 @@ class Booking {
     const bookingButton = document.querySelector('#booking-button');
     const thisHour = utils.hourToNumber(thisBooking.hourPicker.value);
 
-    if (thisBooking.hoursAmount.value > maxDuration) {
+    if (thisBooking.hoursAmount.value > maxDuration){
       bookingButton.disabled = true;
       alert('Sorry your duration time is to long, at this hour our restaurant is locked. Please chose other hour');
     }
