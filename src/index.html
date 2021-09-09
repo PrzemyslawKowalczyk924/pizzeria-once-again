@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pizzeria</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext"
+    rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <header class="header">
@@ -64,128 +67,125 @@
   </header>
 
   <div id="pages">
-
     <section id="home">
       <div class="container home-wrapper">
-        <div class="container home-wrapper">
-          <div class="row">
-            <div class="link-wrapper order-link">
-              <a href="#order" class="link">
-                <h1 class="h1">ORDER ONLINE</h1>
-                <p>Delicious pizza delivered to your home</p>
-              </a>
-            </div>
-            <div class="link-wrapper booking-link">
-              <a href="#booking" class="link">
-                <h1 class="h1">BOOK A TABLE</h5>
+        <div class="row">
+          <div class="link-wrapper order-link">
+            <a href="#order" class="link">
+              <h1 class="h1">ORDER ONLINE</h1>
+              <p>Delicious pizza delivered to your home</p>
+            </a>
+          </div>
+          <div class="link-wrapper booking-link">
+            <a href="#booking" class="link">
+              <h1 class="h1">BOOK A TABLE</h5>
                 <p>There's always more fun together</p>
-              </a>
+            </a>
+          </div>
+          <div class="container opening-wrapper">
+            <h1>OPENING HOURS:
+              <p>TUE-SUN, 12PM-12AM</p>
+            </h1>
+          </div>
+        </div>
+
+        <article class="carousel-section">
+          <div class="row">
+            <div class="image-between">
+              <img src="images/home/pizza-3.jpg" alt="pizzeria">
             </div>
-            <div class="container opening-wrapper">
-              <h1>OPENING HOURS:
-                <p>TUE-SUN, 12PM-12AM</p>
-              </h1>
+            <div class="slider">
+              <div class="carousel" data-flickity='{ "autoPlay": true, "prevNextButtons": false }'>
+                <div class="carousel-cell">
+                  <h3>Amazing service!</h3>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's.
+                  </p>
+                  <h4> - Margaret Osborne</h4>
+                </div>
+                <div class="carousel-cell">
+                  <h3>Super taste.</h3>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    Aenean quis nisl ante.
+                  </p>
+                  <h4> - Justin Biber</h4>
+                </div>
+                <div class="carousel-cell">
+                  <h3>My favorite!</h3>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    Aenean quis nisl ante. Deus meus!
+                  </p>
+                  <h4> - Stephen Howking</h4>
+                </div>
+              </div>
             </div>
           </div>
-          
-          <article class="carousel-section">
-            <div class="row">
-              <div class="image-between">
-                <img src="images/home/pizza-3.jpg" alt="pizzeria">
+        </article>
+        <article class="gallery-section">
+          <div class="row">
+            <div class="gallery-image">
+              <div class="picture">
+                <img src="images/home/pizza-4.jpg">
               </div>
-              <div class="slider">
-                <div class="carousel" data-flickity='{ "autoPlay": true, "prevNextButtons": false }'>
-                  <div class="carousel-cell">
-                    <h3>Amazing service!</h3>
-                    <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                      Lorem Ipsum has been the industry's.
-                    </p>
-                    <h4> - Margaret Osborne</h4>
-                  </div>
-                  <div class="carousel-cell">
-                    <h3>Super taste.</h3>
-                    <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                      Aenean quis nisl ante.
-                    </p>
-                    <h4> - Justin Biber</h4>
-                  </div>
-                  <div class="carousel-cell">
-                    <h3>My favorite!</h3>
-                    <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                      Aenean quis nisl ante. Deus meus!
-                    </p>
-                    <h4> - Stephen Howking</h4>
-                  </div>
-                </div>
+              <div class="icons">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
               </div>
             </div>
-          </article>
-          <article class="gallery-section">
-            <div class="row">
-              <div class="gallery-image">
-                <div class="picture">
-                  <img src="images/home/pizza-4.jpg">
-                </div>
-                <div class="icons">
-                  <i class="fas fa-heart"></i>
-                  <i class="fas fa-share-alt"></i>
-                </div>
+            <div class="gallery-image">
+              <div class="picture">
+                <img src="images/home/pizza-5.jpg">
               </div>
-              <div class="gallery-image">
-                <div class="picture">
-                  <img src="images/home/pizza-5.jpg">
-                </div>
-                <div class="icons">
-                  <i class="fas fa-heart"></i>
-                  <i class="fas fa-share-alt"></i>
-                </div>
-              </div>
-              <div class="gallery-image">
-                <div class="picture">
-                  <img src="images/home/pizza-6.jpg">
-                </div>
-                <div class="icons">
-                  <i class="fas fa-heart"></i>
-                  <i class="fas fa-share-alt"></i>
-                </div>
-              </div>
-              <div class="gallery-image">
-                <div class="picture">
-                  <img src="images/home/pizza-7.jpg">
-                </div>
-                <div class="icons">
-                  <i class="fas fa-heart"></i>
-                  <i class="fas fa-share-alt"></i>
-                </div>
-              </div>
-              <div class="gallery-image">
-                <div class="picture">
-                  <img src="images/home/pizza-8.jpg">
-                </div>
-                <div class="icons">
-                  <i class="fas fa-heart"></i>
-                  <i class="fas fa-share-alt"></i>
-                </div>
-              </div>
-              <div class="gallery-image">
-                <div class="picture">
-                  <img src="images/home/pizza-9.jpg">
-                </div>
-                <div class="icons">
-                  <i class="fas fa-heart"></i>
-                  <i class="fas fa-share-alt"></i>
-                </div>
+              <div class="icons">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
               </div>
             </div>
-          </article>
+            <div class="gallery-image">
+              <div class="picture">
+                <img src="images/home/pizza-6.jpg">
+              </div>
+              <div class="icons">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+              </div>
+            </div>
+            <div class="gallery-image">
+              <div class="picture">
+                <img src="images/home/pizza-7.jpg">
+              </div>
+              <div class="icons">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+              </div>
+            </div>
+            <div class="gallery-image">
+              <div class="picture">
+                <img src="images/home/pizza-8.jpg">
+              </div>
+              <div class="icons">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+              </div>
+            </div>
+            <div class="gallery-image">
+              <div class="picture">
+                <img src="images/home/pizza-9.jpg">
+              </div>
+              <div class="icons">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
-
     <section id="order">
       <div id="product-list" class="product-list container"></div>
     </section>
@@ -373,4 +373,5 @@
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="js/app.js" type="module"></script>
 </body>
+
 </html>
