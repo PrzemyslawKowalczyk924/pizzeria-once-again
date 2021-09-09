@@ -235,7 +235,7 @@ class Booking {
       starters: [],
       phone: parseInt(thisBooking.dom.phone.value),
       email: thisBooking.dom.email.value,
-    }
+    };
 
     const options = {
       method: 'POST',
@@ -253,8 +253,7 @@ class Booking {
         thisBooking.makeBooked(parsedResponse.date, parsedResponse.hour, parsedResponse.duration, parsedResponse.table);
         thisBooking.updateDOM();
       });
-      console.log('booked', thisBooking.booked);
-  };
+  }
 
   render(element) {
     const thisBooking = this;
