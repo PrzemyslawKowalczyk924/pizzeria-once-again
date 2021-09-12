@@ -31,8 +31,8 @@ const app = {
 
         const pageId = clickedElement.getAttribute('href').replace('#', '');
         thisApp.activatePage(pageId);
-        homeLink.classList.add('active');
-        console.log('page listener', thisApp.activatePage);
+        //homeLink.classList.add('active');
+        window.location.hash = '#/' + pageId;
       });
     }
 
@@ -51,6 +51,7 @@ const app = {
         window.location.hash = '#/' + id;
       });
     }
+    console.log(pageMatchingHash);
   },
 
   activatePage: function(pageId){
@@ -126,7 +127,7 @@ const app = {
     //console.log('thisApp:', thisApp);
     //console.log('classNames:', classNames);
     //console.log('settings:', settings);
-    console.log('templates:', templates);
+    //console.log('templates:', templates);
 
     thisApp.initPages();
     thisApp.initData();
