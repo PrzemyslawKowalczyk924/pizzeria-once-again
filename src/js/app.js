@@ -1,4 +1,4 @@
-import { settings, select, classNames, templates } from './settings.js';
+import { settings, select, classNames } from './settings.js';
 import Cart from './components/Cart.js';
 import Product from './components/Product.js';
 import Booking from './components/Booking.js';

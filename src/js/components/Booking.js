@@ -128,9 +128,8 @@ class Booking {
       table.addEventListener('click', function (event) {
         event.preventDefault();
         bookingButton.disabled = false;
-        console.log('test', thisBooking.dom.wrapper);
+        //console.log('test', thisBooking.dom.wrapper);
         const tableChosen = thisBooking.dom.wrapper.querySelector(select.booking.tableChosen);
-        console.log(tableChosen);
         if (tableChosen) {
           tableChosen.classList.remove(classNames.booking.tableChosen);
         }
@@ -141,6 +140,7 @@ class Booking {
         table.classList.add(classNames.booking.tableChosen);
         thisBooking.tableSelected = table.getAttribute(settings.booking.tableIdAttribute);
         thisBooking.checkForOvercome(table);
+        console.log(thisBooking.tableSelected);
       });
     }
   }
@@ -185,6 +185,7 @@ class Booking {
         table.classList.remove(classNames.booking.tableBooked);
       }
     }
+    thisBooking.rangeSliderColour();
   }
 
   makeReservation() {
@@ -219,6 +220,39 @@ class Booking {
         break;
       }
     }
+  }
+
+  rangeSliderColour() {
+    const thisBooking = this;
+
+    thisBooking.date = thisBooking.datePicker.value;
+    const hoursBooked = thisBooking.booked[thisBooking.date];
+
+    const gradientArr = [];
+    let gradient = 0;
+    let time = 12;
+    let color;
+
+    for (let i = 0; i < 24; i++) {
+      if (hoursBooked.hasOwnProperty(time)) {
+        if (hoursBooked[time].length <= 2) {
+          color = 'orange';
+        } else {
+          color = 'red';
+        }
+      } else {
+        color = 'green';
+      }
+      gradientArr.push(`${color} ${gradient}%`);
+      gradient += 100 / 24;
+      time += 0.5;
+    }
+
+    const coloursString = gradientArr.join(', ');
+
+    thisBooking.dom.wrapper.querySelector(
+      select.widgets.hourPicker.slider
+    ).style.background = `linear-gradient(90deg, ${coloursString})`;
   }
 
   sendOrder() {
