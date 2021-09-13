@@ -227,6 +227,7 @@ class Booking {
 
     thisBooking.date = thisBooking.datePicker.value;
     const hoursBooked = thisBooking.booked[thisBooking.date];
+    console.log(hoursBooked);
 
     const gradientArr = [];
     let gradient = 0;
@@ -235,13 +236,13 @@ class Booking {
 
     for (let i = 0; i < 24; i++) {
       if (hoursBooked.hasOwnProperty(time)) {
-        if (hoursBooked[time].length <= 2) {
+        if (hoursBooked[time].length == 2) {
           color = 'orange';
-        } else {
+        } else if (hoursBooked[time].length == 3) {
           color = 'red';
-        }
-      } else {
-        color = 'green';
+        } else {
+          color = 'green';
+        } 
       }
       gradientArr.push(`${color} ${gradient}%`);
       gradient += 100 / 24;
