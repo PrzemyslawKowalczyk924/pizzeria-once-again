@@ -129,16 +129,22 @@ class Booking {
         event.preventDefault();
         bookingButton.disabled = false;
         //console.log('test', thisBooking.dom.wrapper);
-        const tableChosen = thisBooking.dom.wrapper.querySelector(select.booking.tableChosen);
+        /* const tableChosen = thisBooking.dom.wrapper.querySelector(select.booking.tableChosen);
         if (tableChosen) {
           tableChosen.classList.remove(classNames.booking.tableChosen);
-        }
+        } */
         if (table.classList.contains(classNames.booking.tableBooked)) {
           alert('this table is already booked');
           return false;
         }
-        table.classList.add(classNames.booking.tableChosen);
-        thisBooking.tableSelected = table.getAttribute(settings.booking.tableIdAttribute);
+        table.classList.toggle(classNames.booking.tableChosen);
+        const tableId = table.getAttribute(settings.booking.tableIdAttribute);
+        const tableIndex = thisBooking.tableSelected.indexOf(tableId);
+        if(thisBooking.tableSelected.includes(tableId)) {
+          thisBooking.tableSelected.splice(tableIndex, 1);
+        } else {
+          thisBooking.tableSelected.push(tableId);
+        }
         thisBooking.checkForOvercome(table);
         console.log(thisBooking.tableSelected);
       });
@@ -150,11 +156,11 @@ class Booking {
     const bookingButton = document.querySelector('#booking-button');
     bookingButton.disabled = false;
 
-    const tableChosen = thisBooking.dom.wrapper.querySelector(select.booking.tableChosen);
-    if (tableChosen) {
-      tableChosen.classList.remove(classNames.booking.tableChosen);
+    const tablesChosen = thisBooking.dom.wrapper.querySelectorAll(select.booking.tableChosen);
+    for (let table of tablesChosen) {
+      table.classList.remove(classNames.booking.tableChosen);
     }
-    thisBooking.tableSelected = null;
+    thisBooking.tableSelected = [];
 
     thisBooking.date = thisBooking.datePicker.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
@@ -238,11 +244,13 @@ class Booking {
       if (hoursBooked.hasOwnProperty(time)) {
         if (hoursBooked[time].length == 2) {
           color = 'orange';
-        } else if (hoursBooked[time].length == 3) {
+        }
+        if (hoursBooked[time].length == 3) {
           color = 'red';
-        } else {
+        }
+        if(hoursBooked[time].length <= 1) {
           color = 'green';
-        } 
+        }
       }
       gradientArr.push(`${color} ${gradient}%`);
       gradient += 100 / 24;
